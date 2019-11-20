@@ -10,6 +10,7 @@ $nodes = @$finder->query("//*[contains(@class, '$classname')]");
 
 $values = $nodes->item(0)->getElementsByTagName('strong');
 
+
 $data = [
   'name' => null,
   'nationality' => null,
@@ -49,6 +50,14 @@ foreach ($values as $key => $value) {
     $data ['post'] = $value;
   }
 }
-  var_dump($data);
+
+$dates = explode(' ', $data['birthdate']);
+
+$months = array("janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre");
+
+$month = $dates[2];
+$key = array_search($month, $months);
+
+  var_dump($key);
 
 ?>
